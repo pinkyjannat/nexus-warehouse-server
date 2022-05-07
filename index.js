@@ -51,6 +51,14 @@ async function run() {
     res.send(result);
 
 })
+
+//delete from manage inventory page
+app.delete('/update/:id', async(req, res) =>{
+  const id = req.params.id;
+  const query = {_id: ObjectId(id)};
+  const result = await productCollection.deleteOne(query);
+  res.send(result);
+})
    
 
   }
